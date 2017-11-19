@@ -1657,7 +1657,7 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 
 	if spellId==PrayerOfMendingHealId then
 		local tempsource, tempsourceId, tempsourceFlags = Recount.HealBuffs.POM_Healed(source)
-		if tempsource and false then -- fix by Dekos : on Warmane servers, the addition of "and false " in this line will fix the PoM bug definitely (! make sure to revert it for other servers)
+		if tempsource and srcGUID == dstGUID then -- fix by Dekos for Warmane (should be backward compatible with other servers)
 			source = tempsource
 			srcGUID = tempsourceId
 			srcFlags = tempsourceFlags
